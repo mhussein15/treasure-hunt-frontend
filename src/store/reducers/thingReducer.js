@@ -1,20 +1,27 @@
 import * as types from "../actions/types";
 const initialState = {
-  things: [],
+  random: [],
+  randomLoader:false,
+  treasure: [],
+  treasureLoader:false,
+
 };
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case types.FETCH_THING_RANDOM:
+    case "FETCH_THING_RANDOM":
       return {
         ...state,
-        things: action.payload,
+        random: action.payload.random,
+        randomLoader:true
       };
 
     case types.FETCH_THING_TREASURE:
       return {
         ...state,
-        things: action.payload,
+        treasure: action.payload,
+        treasureLoader:true,
+
       };
 
     default:
